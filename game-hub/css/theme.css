@@ -1,0 +1,31 @@
+/* Светлая тема: переопределяет переменные из base.css */
+:root[data-theme="light"]{
+  --bg0:#F2F5FC;--bg1:#E8EEFA;--bg2:#FFFFFF;
+  --surface:rgba(255,255,255,.88);--surface2:#FFFFFF;
+  --blue-lt:#2E7BFF;
+  --text:#0E1A38;--text2:#34456B;--dim:#5E7096;
+  --line:rgba(40,90,200,.15);--line2:rgba(40,90,200,.32);
+  --grad:linear-gradient(135deg,#1F5FE0,#2E7BFF 50%,#18B4D4);
+  --hot:linear-gradient(135deg,#E8203F,#FF5C75);
+  --on-grad:#fff;--hover-text:#0E1A38;--accent-red:#E0213F;
+  --hdr-bg:rgba(255,255,255,.8);--hdr-bg2:rgba(255,255,255,.96);
+  --chip-bg:#fff;--stats-bg:rgba(255,255,255,.7);--rank-bg:rgba(255,255,255,.9);
+  --shadow:rgba(40,70,140,.35);
+  --hero-ov:linear-gradient(105deg,rgba(242,245,252,.94),rgba(242,245,252,.6));
+  --thumb-bg:linear-gradient(135deg,#cfe0ff,#dcd9ff 55%,#ffd9e6);
+  --art-bg:linear-gradient(135deg,#bcd3ff,#d6d4ff 50%,#ffd0e0);
+  --glow1:rgba(46,123,255,.16);--glow2:rgba(255,46,77,.08);
+  --c-dl:#0A8FB0;--c-lk:#E0213F;--cl1:82%;--cl2:88%;
+  color-scheme:light;
+}
+body{transition:background-color .3s,color .3s}
+
+/* Кнопка смены темы */
+.theme-btn{position:fixed;right:18px;bottom:calc(76px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:14px;background:var(--surface2);border:1px solid var(--line2);display:grid;place-items:center;z-index:40;transition:.3s;overflow:hidden}
+.theme-btn:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.theme-btn svg{grid-area:1/1;width:22px;height:22px;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .3s}
+.theme-btn .sun{color:var(--gold);opacity:0;transform:rotate(-90deg) scale(.4)}
+.theme-btn .moon{color:var(--blue-lt);opacity:1;transform:none}
+:root[data-theme="light"] .theme-btn .sun{opacity:1;transform:none}
+:root[data-theme="light"] .theme-btn .moon{opacity:0;transform:rotate(90deg) scale(.4)}
+:root[data-theme="light"] .theme-btn .sun{color:#F59E0B}

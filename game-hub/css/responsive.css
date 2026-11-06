@@ -1,0 +1,8 @@
+/* Mobile */
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}.art{transform:none;order:-1}
+  .nav{display:none}.burger{display:block;margin-left:auto}.hdr .search{display:none}
+  .stats .wrap{grid-template-columns:repeat(2,1fr);gap:20px}
+  .nav.open{display:flex;position:fixed;top:var(--hh);left:0;right:0;flex-direction:column;background:var(--bg2);padding:14px 20px;border-bottom:1px solid var(--line2)}
+}
+@media(max-width:520px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.info{padding:10px 12px 12px}.info h3{font-size:14px}.pill{padding:5px 9px;font-size:12px}.pills{gap:6px}.more-btn{padding:8px 14px;font-size:13px}.btn-ghost.login{display:none}}

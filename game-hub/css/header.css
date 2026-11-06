@@ -1,0 +1,20 @@
+/* Header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--hdr-bg);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--line);padding:9px 0}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,transparent,#2E7BFF 20%,#35E5FF 50%,#FF2E4D 80%,transparent);opacity:.5}
+.hdr .wrap{display:flex;align-items:center;gap:18px;min-height:52px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:20px;letter-spacing:.5px}
+.logo i{width:38px;height:38px;border-radius:12px;background:var(--grad);display:grid;place-items:center;font-style:normal;color:var(--on-grad);box-shadow:0 0 24px rgba(46,123,255,.5)}
+.logo b{color:var(--blue-lt)}
+.nav{display:flex;gap:4px;margin-left:10px}
+.nav a{padding:8px 14px;border-radius:999px;color:var(--text2);font-weight:500;font-size:15px;transition:.2s}
+.nav a:hover,.nav a.on{background:rgba(46,123,255,.16);color:var(--hover-text)}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:0 14px;height:42px;width:min(320px,34vw)}
+.search input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--text);font:inherit;font-size:14px}
+.search input::placeholder{color:var(--dim)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 22px;height:42px;border-radius:999px;font-weight:600;font-size:15px;transition:.25s}
+.btn-pri{background:var(--grad);color:var(--on-grad);box-shadow:0 10px 30px -10px rgba(46,123,255,.8)}
+.btn-pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px -10px rgba(53,229,255,.8)}
+.btn-ghost{background:var(--surface);border:1px solid var(--line2)}
+.btn-ghost:hover{border-color:var(--cyan)}
+.burger{display:none;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:20px}
+
