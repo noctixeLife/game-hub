@@ -28,7 +28,7 @@ var ALL_TAGS = (function () {
 // ===== Игры =====
 // Формат одной игры:
 // {id:1, title:'Название', cover:'assets/images/1.jpg', genre:'vn', tags:['2D','Комедия'],
-//  downloads:4505, likes:47, date:'2026-10-30', size:'296MB', url:'game.html', h:210}
+//  views:21300, downloads:4505, likes:47, date:'2026-10-30', size:'296MB', url:'game.html', h:210}
 //  cover — путь к картинке (пусто = заглушка), date — дата выхода, h — оттенок заглушки (0–360)
 // Ниже — тестовые игры. Когда будут настоящие — замени весь массив GAMES своим.
 function rng(seed) {
@@ -57,6 +57,7 @@ var GAMES = (function () {
       cover: '',
       genre: g.id,
       tags: tags,
+      views: Math.round(dl * (2.5 + r() * 5)),
       downloads: dl,
       likes: Math.round(dl * (0.02 + r() * 0.12)),
       date: new Date(Date.now() - days * 864e5).toISOString().slice(0, 10),

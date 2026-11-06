@@ -30,22 +30,26 @@
     if (c && !c.contains(e.relatedTarget)) c.style.transform = '';
   });
 
-  // Лайк: меняет сердечко и счётчик на всех карточках этой игры
+  // Лайк: меняет сердечко на всех карточках игры, число меняет Stats (с анимацией)
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('.heart');
     if (!b) return;
     e.preventDefault();
-    var id = b.getAttribute('data-id'), g = null;
-    GAMES.forEach(function (x) { if (String(x.id) === id) g = x; });
-    if (!g) return;
-    var on = !LIKED[id];
+    var id = b.getAttribute('data-id'), on = !LIKED[id];
     if (on) LIKED[id] = 1; else delete LIKED[id];
     saveLiked();
     [].forEach.call(document.querySelectorAll('.heart[data-id="' + id + '"]'), function (h) {
       h.classList.toggle('on', on);
       h.setAttribute('aria-pressed', on);
-      h.closest('.card').querySelector('.lkn').textContent = fmt(g.likes + (on ? 1 : 0));
       h.classList.remove('beat'); void h.offsetWidth; h.classList.add('beat');
     });
+    Stats.like(id, on);
+  });
+
+  // Просмотр: клик по обложке или названию
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.cover, .info h3 a');
+    var c = a && a.closest('.card');
+    if (c) Stats.view(c.getAttribute('data-id'));
   });
 })();

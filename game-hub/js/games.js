@@ -27,9 +27,15 @@ function isNew(g) { return daysAgo(g.date) <= 7; } // «NEW» ставится �
 
 var ICON_HEART = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 2.6 5 6 5c2 0 3.4 1.1 4 2.2h4C14.6 6.1 16 5 18 5c3.4 0 5.1 3.5 3.6 6.8C19.5 16.4 12 21 12 21z"/></svg>';
 var ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>';
+var ICON_EYE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 5C6.5 5 2.7 9 1.2 12c1.5 3 5.3 7 10.8 7s9.3-4 10.8-7C21.3 9 17.5 5 12 5zm0 11.2a4.2 4.2 0 110-8.4 4.2 4.2 0 010 8.4zm0-6.4a2.2 2.2 0 100 4.4 2.2 2.2 0 000-4.4z"/></svg>';
 var ICON_INFO = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>';
 var ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.2 12.6l-5.2-3V6h1.8v4.6l4.3 2.5-.9 1.5z"/></svg>';
 var ICON_DISK = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h12l4 4v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm2 2v5h9V5H7zm5 8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
+
+// Число-счётчик (значение берётся из Stats, анимацию делает counters.js)
+function num(g, k) {
+  return '<b class="num" data-id="' + g.id + '" data-k="' + k + '">' + fmt(Stats.get(g.id, k)) + '</b>';
+}
 
 // ===== Карточка игры =====
 function card(g, rank) {
@@ -46,8 +52,10 @@ function card(g, rank) {
     + '<button class="heart' + (liked ? ' on' : '') + '" data-id="' + g.id + '" aria-label="В избранное" aria-pressed="' + liked + '">' + ICON_HEART + '</button>'
     + '<div class="info"><h3><a href="' + esc(g.url) + '">' + esc(g.title) + '</a></h3>'
     + '<div class="ctags">' + tags + '</div>'
-    + '<div class="pills"><span class="pill dl">' + ICON_DL + '<b>' + fmt(g.downloads) + '</b></span>'
-    + '<span class="pill lk">' + ICON_HEART + '<b class="lkn">' + fmt(g.likes + (liked ? 1 : 0)) + '</b></span></div>'
+    + '<div class="pills">'
+    + '<span class="pill dl" title="Загрузки">' + ICON_DL + num(g, 'd') + '</span>'
+    + '<span class="pill vw" title="Просмотры">' + ICON_EYE + num(g, 'v') + '</span>'
+    + '<span class="pill lk" title="Лайки">' + ICON_HEART + num(g, 'l') + '</span></div>'
     + '<div class="foot"><span>' + ICON_CLOCK + ago(g.date) + '</span><span>' + ICON_DISK + esc(g.size) + '</span></div>'
     + '</div></article>';
 }
@@ -59,6 +67,7 @@ function fillGrid(id, list, ranked) {
     c.classList.add('pop');
     c.style.animationDelay = (i * 40) + 'ms';
   });
+  Stats.observe(el);
 }
 
 // ===== Фильтрация и сортировка =====
@@ -73,8 +82,9 @@ function filtered() {
   });
   var s = state.sort;
   list.sort(function (a, b) {
-    if (s === 'likes') return b.likes - a.likes;
-    if (s === 'dl') return b.downloads - a.downloads;
+    if (s === 'likes') return Stats.get(b.id, 'l') - Stats.get(a.id, 'l');
+    if (s === 'dl') return Stats.get(b.id, 'd') - Stats.get(a.id, 'd');
+    if (s === 'views') return Stats.get(b.id, 'v') - Stats.get(a.id, 'v');
     return new Date(b.date) - new Date(a.date);
   });
   return list;

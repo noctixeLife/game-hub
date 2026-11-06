@@ -85,15 +85,16 @@
           <div class="fgrid">
             <aside class="genres" id="genres" aria-label="Жанры"></aside>
             <div class="tagpane">
-              <div class="tphead"><h4 id="tptitle">Теги</h4><button class="reset" id="reset" style="visibility:hidden">✕ Сбросить всё</button></div>
+              <div class="tphead"><h4 id="tptitle">Теги</h4><button class="reset" id="reset" style="visibility:hidden">✕ Сбросить</button></div>
               <div class="chips" id="chips"></div>
-              <button class="more" id="more">⌄ Показать все теги</button>
-              <div class="sorts">
-                <button class="sbtn" data-s="likes">❤ Сортировать по лайкам</button>
-                <button class="sbtn" data-s="dl">⬇ Сортировать по загрузкам</button>
-              </div>
             </div>
           </div>
+          <div class="sorts">
+        <span class="slabel">Сортировать:</span>
+        <button class="sbtn" data-s="likes">❤ Лайки</button>
+        <button class="sbtn" data-s="views">👁 Просмотры</button>
+        <button class="sbtn" data-s="dl">⬇ Загрузки</button>
+      </div>
         </div>
       </div>
       <div class="fnote" id="fnote"></div>
@@ -124,6 +125,7 @@
 </button>
 <button class="totop" id="totop" aria-label="Наверх">↑</button>
 <script src="js/data.js" defer></script>
+<script src="js/counters.js" defer></script>
 <script src="js/games.js" defer></script>
 <script src="js/filter.js" defer></script>
 <script src="js/cards.js" defer></script>

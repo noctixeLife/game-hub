@@ -2,7 +2,7 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var fbox = $('fbox'), genresEl = $('genres'), chipsEl = $('chips'), tagq = '';
-  var SORT_NAMES = {likes: 'по лайкам', dl: 'по загрузкам'};
+  var SORT_NAMES = {likes: 'по лайкам', dl: 'по загрузкам', views: 'по просмотрам'};
 
   var COUNT = {};
   GAMES.forEach(function (g) { COUNT[g.genre] = (COUNT[g.genre] || 0) + 1; });
@@ -36,7 +36,6 @@
     chipsEl.innerHTML = tags.length ? tags.map(function (t) {
       return '<button class="chip' + (state.tags[t] ? ' on' : '') + '" data-t="' + esc(t) + '">' + esc(t) + '</button>';
     }).join('') : '<span class="nochip">Такого тега нет</span>';
-    $('more').style.display = tags.length > 14 ? '' : 'none';
   }
 
   // Подпись под фильтром, счётчик активных фильтров, кнопка «Сбросить»
@@ -84,12 +83,6 @@
 
   $('tagq').addEventListener('input', function (e) { tagq = e.target.value.trim(); drawChips(); });
   $('q').addEventListener('input', function (e) { state.q = e.target.value.trim(); state.page = 1; sync(); });
-
-  // «Показать все теги» / «Свернуть»
-  $('more').onclick = function () {
-    var open = chipsEl.classList.toggle('open');
-    this.textContent = open ? '⌃ Свернуть теги' : '⌄ Показать все теги';
-  };
 
   // Сортировка
   [].forEach.call(document.querySelectorAll('.sbtn'), function (b) {

@@ -14,7 +14,7 @@
   --thumb-bg:linear-gradient(135deg,#102a6b,#1c1b45 55%,#3a1233);
   --art-bg:linear-gradient(135deg,#0c2a78,#1a1f4d 50%,#4b123a);
   --glow1:rgba(11,63,204,.25);--glow2:rgba(255,46,77,.14);
-  --c-dl:#35E5FF;--c-lk:#FF6B80;--cl1:30%;--cl2:20%;
+  --c-dl:#35E5FF;--c-vw:#B49BFF;--c-lk:#FF6B80;--cl1:30%;--cl2:20%;
   color-scheme:dark;
   --r:20px;--r-sm:14px;--r-lg:28px;--hh:70px;
 }

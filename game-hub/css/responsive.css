@@ -5,4 +5,4 @@
   .stats .wrap{grid-template-columns:repeat(2,1fr);gap:20px}
   .nav.open{display:flex;position:fixed;top:var(--hh);left:0;right:0;flex-direction:column;background:var(--bg2);padding:14px 20px;border-bottom:1px solid var(--line2)}
 }
-@media(max-width:520px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.info{padding:10px 12px 12px}.info h3{font-size:14px}.pill{padding:5px 9px;font-size:12px}.pills{gap:6px}.more-btn{padding:8px 14px;font-size:13px}.btn-ghost.login{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.info{padding:10px 12px 12px}.info h3{font-size:14px}.pill{padding:4px 8px;font-size:11.5px}.pills{gap:5px}.pill svg{width:12px;height:12px}.more-btn{padding:8px 14px;font-size:13px}.btn-ghost.login{display:none}}
