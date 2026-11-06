@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GAME HUB — главная</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/effects.css">
+<link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#"><i>G</i>GAME<b>HUB</b></a>
+    <nav class="nav" id="nav">
+      <a class="on" href="#">Главная</a>
+      <a href="#top">Топ загрузок</a>
+      <a href="#liked">Популярные</a>
+      <a href="#all">Все игры</a>
+      <a href="#">Контакты</a>
+    </nav>
+    <label class="search"><span>🔍</span><input type="search" placeholder="Поиск игр..."></label>
+    <a class="btn btn-ghost login" href="#">Войти</a>
+    <a class="btn btn-pri" href="#">Регистрация</a>
+    <button class="burger" id="burger" aria-label="Меню">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">🔞 Только для взрослых · 18+</span>
+      <h1>Центр игр<br>для <span class="t-blue">GAME HUB</span> <span class="t-red">18+</span></h1>
+      <p>Новые игры каждый день. Удобный каталог, быстрый поиск и скачивание в пару кликов — на ПК и телефоне.</p>
+      <div class="cta">
+        <a class="btn btn-pri" href="#all">Смотреть каталог</a>
+        <a class="btn btn-ghost" href="#top">Топ загрузок</a>
+      </div>
+    </div>
+    <div class="art">Баннер (заглушка)</div>
+  </div>
+</section>
+
+<div class="stats"><div class="wrap">
+  <div class="stat"><b>800+</b><span>игр в каталоге</span></div>
+  <div class="stat"><b>24/7</b><span>обновления</span></div>
+  <div class="stat"><b>PC · Mobile</b><span>платформы</span></div>
+  <div class="stat"><b>Free</b><span>без оплаты</span></div>
+</div></div>
+
+<main class="wrap">
+  <section class="sec" id="top">
+    <h2><span class="ico">🔥</span>Топ-10 по загрузкам</h2>
+    <div class="grid" id="g1"></div>
+  </section>
+
+  <section class="sec" id="liked">
+    <h2><span class="ico hot">❤</span>Топ-10 по лайкам</h2>
+    <div class="grid" id="g2"></div>
+  </section>
+
+  <section class="sec" id="filter">
+    <div class="fbox">
+      <div class="fhead">
+        <h3><span class="ico fi">▼</span>Фильтр по жанрам</h3>
+        <label class="search fsearch"><span>🔍</span><input id="tagq" type="search" placeholder="Поиск жанра..."></label>
+      </div>
+      <div class="chips" id="chips"></div>
+      <button class="more" id="more">⌄ Показать все жанры</button>
+      <div class="sorts">
+        <button class="sbtn" data-s="likes">❤ Сортировать по лайкам</button>
+        <button class="sbtn" data-s="dl">⬇ Сортировать по загрузкам</button>
+      </div>
+      <div class="fnote" id="fnote">Показаны все игры — выберите теги для фильтра</div>
+    </div>
+  </section>
+
+  <section class="sec" id="all">
+    <h2><span class="ico">🎮</span>Все игры <small id="pinfo"></small></h2>
+    <div class="grid" id="g3"></div>
+    <nav class="pager" id="pager"></nav>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#"><i>G</i>GAME<b>HUB</b></a>
+      <p>Сайт предназначен для лиц старше 18 лет. Весь контент — заглушки для вёрстки.</p>
+    </div>
+    <div class="links"><a href="#">Главная</a><a href="#">Гайд</a><a href="#">Контакты</a><a href="#">Правила</a></div>
+    <div class="copy">© 2026 GAME HUB</div>
+  </div>
+</footer>
+
+<button class="gear" id="gear" aria-label="Эффекты" title="Эффекты вкл/выкл">⚙</button>
+<button class="totop" id="totop" aria-label="Наверх">↑</button>
+<script src="js/data.js" defer></script>
+<script src="js/games.js" defer></script>
+<script src="js/filter.js" defer></script>
+<script src="js/effects.js" defer></script>
+<script src="js/header.js" defer></script>
+</body>
+</html>
